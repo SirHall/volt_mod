@@ -142,9 +142,10 @@ bool JSONLoader::RecursiveLoadDir(std::string const &    loadDir,
 
     for (auto &dir : std::filesystem::recursive_directory_iterator(loadDir))
     {
-        if (dir.is_directory() &&
-            RecursiveLoadDir(dir.path().generic_string(), jsonObjects))
-        {}
+        if (dir.is_directory())
+        {
+            // RecursiveLoadDir(dir.path().generic_string(), jsonObjects);
+        }
         else if (dir.is_regular_file())
         {
             // Load the single JSON file (Don't read module.json files)
