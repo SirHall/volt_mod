@@ -1,0 +1,9 @@
+{
+    "moduleName": "Test Module 1",
+    "author": "John Doe",
+    "site": "www.example.com",
+    "repository": "www.github.com/SirHall/volt_file",
+    "version": "0.0.1",
+    "targetVersion": "0.0.1",
+    "dependencies": []
+}
