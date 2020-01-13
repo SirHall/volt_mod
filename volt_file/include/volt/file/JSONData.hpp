@@ -23,6 +23,15 @@ namespace volt::file
         JSONData(const JSONData &other);
         JSONData(JSONData &&other);
         ~JSONData();
+
+        inline std::string const &GetName() const { return this->name; }
+
+        inline std::string const &GetType() const { return this->type; }
+
+        inline boost::property_tree::ptree const &GetRoot() const
+        {
+            return this->root;
+        }
     };
 
 } // namespace volt::file
