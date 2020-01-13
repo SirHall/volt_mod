@@ -1,0 +1,9 @@
+{
+    "__autoload_asset__": true,
+    "type": "person",
+    "name": "test_person",
+    "personFirstName": "John",
+    "personSecondName": "Dough",
+    "profession": "chef",
+    "homeAddress": "0x1BADB002 entry.asm Drive, 3417 Philadelphia"
+}
