@@ -3,6 +3,7 @@
 #define VOLT_FILE_JSONLOADER_HPP
 
 #include "volt/file/JSONData.hpp"
+#include "volt/file/Module.hpp"
 
 #include <string>
 #include <vector>
@@ -27,8 +28,11 @@ namespace volt::file
         JSONLoader &operator=(JSONLoader &&other);
         ~JSONLoader();
 
-        std::vector<JSONData>
+        std::vector<Module>
             LoadModuleCollection(std::string const &collectionDir);
+
+        bool LoadModule(std::string const &  moduleDir,
+                        std::vector<Module> &modules);
 
         bool RecursiveLoadDir(std::string const &    loadDir,
                               std::vector<JSONData> &jsonObjects);
