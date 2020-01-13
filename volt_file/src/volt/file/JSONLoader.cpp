@@ -149,7 +149,7 @@ bool JSONLoader::RecursiveLoadDir(std::string const &    loadDir,
         {
             // Load the single JSON file (Don't read module.json files)
             if (dir.path().has_filename() && dir.path().has_extension() &&
-                (dir.path().extension() == "json") &&
+                (dir.path().extension() == ".json") &&
                 (dir.path().filename() != "module.json"))
             {
                 // This is a json data, attempt to load it
