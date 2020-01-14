@@ -15,6 +15,8 @@ namespace volt::file
         const std::vector<JSONData>    jsonObjs;
         const std::string              moduleName;
         const std::vector<std::string> dependencies;
+        const std::vector<std::string> loadBefore;
+        const std::vector<std::string> loadAfter;
         const std::string              version;
         const std::string              softwareVersion;
         const std::string              author;
@@ -24,9 +26,12 @@ namespace volt::file
     protected:
     public:
         Module(std::vector<JSONData> jsonObjects, std::string name,
-               std::vector<std::string> deps, std::string moduleVersion,
-               std::string targetSoftwareVersion, std::string authorName,
-               std::string siteURL, std::string repositoryURL);
+               std::vector<std::string> deps,
+               std::vector<std::string> loadAfterModules,
+               std::vector<std::string> loadBeforeModules,
+               std::string moduleVersion, std::string targetSoftwareVersion,
+               std::string authorName, std::string siteURL,
+               std::string repositoryURL);
         Module(const Module &other);
         Module(Module &&other);
         ~Module();

@@ -58,6 +58,25 @@ std::vector<Module>
     return modules;
 }
 
+template <typename T>
+std::vector<T> JSONGetVec(boost::property_tree::ptree const &root,
+                          std::string const &                fieldName)
+{
+    auto vec   = std::vector<std::string>();
+    auto child = root.get_child_optional(fieldName);
+    if (child.has_value())
+    {
+        for (auto &childNode : child.value())
+        {
+            auto childNodeVal =
+                childNode.second.get_value_optional<std::string>();
+            if (childNodeVal.has_value())
+                vec.push_back(childNodeVal.value());
+        }
+    }
+    return std::move(vec);
+}
+
 bool JSONLoader::LoadModule(std::string const &  moduleDir,
                             std::vector<Module> &modules)
 {
@@ -88,18 +107,14 @@ bool JSONLoader::LoadModule(std::string const &  moduleDir,
 
             // Which other modules must be loaded before this one (Primarily for
             // scripts)
-            auto moduleDependenciesVec = std::vector<std::string>();
             auto moduleDependencies =
-                moduleFileRoot.get_child_optional("dependencies");
-            if (moduleDependencies.has_value())
-            {
-                for (auto &dep : moduleDependencies.value())
-                {
-                    auto depVal = dep.second.get_value_optional<std::string>();
-                    if (depVal.has_value())
-                        moduleDependenciesVec.push_back(depVal.value());
-                }
-            }
+                JSONGetVec<std::string>(moduleFileRoot, "dependencies");
+
+            auto moduleLoadAfter =
+                JSONGetVec<std::string>(moduleFileRoot, "loadAfter");
+
+            auto moduleLoadBefore =
+                JSONGetVec<std::string>(moduleFileRoot, "loadBefore");
 
             // Which version of the game this module is supposed to be
             // compatible with
@@ -123,7 +138,8 @@ bool JSONLoader::LoadModule(std::string const &  moduleDir,
             // Add the new module to the list of modules
             modules.push_back(
                 Module(jsonObjects, moduleName.value_or("NULL"),
-                       moduleDependenciesVec, moduleVersion.value_or("0.0.0"),
+                       moduleDependencies, moduleLoadAfter, moduleLoadBefore,
+                       moduleVersion.value_or("0.0.0"),
                        moduleTargetVersion.value_or("0.0.0"),
                        moduleAuthor.value_or(""), moduleSite.value_or(""),
                        moduleRepository.value_or("")));
