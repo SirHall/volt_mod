@@ -1,5 +1,5 @@
 {
-    "__autoload_asset__": true,
-    "type": "text",
-    "name": "test_data"
+    "__asset_autoload__": true,
+    "__asset_type__": "text",
+    "__asset_name__": "test_data"
 }

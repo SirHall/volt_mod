@@ -1,7 +1,7 @@
 {
-    "__autoload_asset__": true,
-    "type": "person",
-    "name": "test_person",
+    "__asset_autoload__": true,
+    "__asset_type__": "person",
+    "__asset_name__": "test_person",
     "personFirstName": "John",
     "personSecondName": "Dough",
     "profession": "chef",

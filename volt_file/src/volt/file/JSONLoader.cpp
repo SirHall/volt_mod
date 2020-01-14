@@ -164,27 +164,29 @@ bool JSONLoader::RecursiveLoadDir(std::string const &    loadDir,
                 // Firstly, is this json file supposed to be auto-loaded as
                 // an asset?
                 auto isJsonObjectAnAsset =
-                    fileRoot.get_optional<bool>("__autoload_asset__");
+                    fileRoot.get_optional<bool>("__asset_autoload__");
                 if (!isJsonObjectAnAsset.value_or(false))
                 {
                     // This json object should not be auto-loaded, skip it
                     continue;
                 }
 
-                auto jsonType = fileRoot.get_optional<std::string>("type");
+                auto jsonType =
+                    fileRoot.get_optional<std::string>("__asset_type__");
                 if (!jsonType.has_value())
                 {
                     throw std::runtime_error(
-                        "Autoloaded JSON file has no 'type' field: " +
+                        "Autoloaded JSON file has no '__asset_type__' field: " +
                         dir.path().generic_string());
                     continue;
                 }
 
-                auto assetName = fileRoot.get_optional<std::string>("name");
+                auto assetName =
+                    fileRoot.get_optional<std::string>("__asset_name__");
                 if (!assetName.has_value())
                 {
                     throw std::runtime_error(
-                        "Autoloaded JSON file has no 'type' field: " +
+                        "Autoloaded JSON file has no '__asset_name__' field: " +
                         dir.path().generic_string());
                     continue;
                 }
