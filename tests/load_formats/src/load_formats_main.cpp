@@ -4,8 +4,11 @@
 
 int main(int argc, char *argv[])
 {
-    auto loader  = volt::file::JSONLoader();
-    auto modules = loader.LoadModuleCollection("./res");
+    auto loader = volt::file::JSONLoader();
+
+    auto moduleJar = loader.LoadModuleCollection("./res");
+
+    auto const &modules = moduleJar.GetModulesQueue();
 
     if (modules.size() <= 0)
     {
@@ -13,7 +16,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    for (auto &module : modules)
+    for (auto const &module : modules)
     {
         std::cout << "{\n\t"
                   << "Module:\t\t" << module.GetModuleName() << "\n\t"
@@ -21,7 +24,7 @@ int main(int argc, char *argv[])
                   << "Version:\t" << module.GetVersion() << "\n\t"
                   << "Site:\t\t" << module.GetSite() << "\n\t"
                   << "JSONs:\n";
-        for (auto &jsonFile : module.GetAutoloadJSONs())
+        for (auto const &jsonFile : module.GetAutoloadJSONs())
         {
             std::cout << "\t\t{\n";
             for (auto &jsonField : jsonFile.GetRoot())
