@@ -1,0 +1,9 @@
+{
+    "moduleName": "F",
+    "author": "John Doe",
+    "site": "www.example.com",
+    "repository": "www.example.com/test.git",
+    "version": "0.0.1",
+    "targetVersion": "0.0.1",
+    "dependencies": ["E", "A"]
+}
