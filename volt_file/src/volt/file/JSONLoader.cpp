@@ -21,8 +21,7 @@ JSONLoader &JSONLoader::operator=(JSONLoader &&other) { return *this; }
 
 JSONLoader::~JSONLoader() {}
 
-std::vector<Module>
-    JSONLoader::LoadModuleCollection(std::string const &collectionDir)
+ModuleJar JSONLoader::LoadModuleCollection(std::string const &collectionDir)
 {
     auto modules = std::vector<Module>();
 
@@ -55,7 +54,7 @@ std::vector<Module>
             }
         }
     }
-    return modules;
+    return ModuleJar(std::move(modules));
 }
 
 template <typename T>
@@ -91,9 +90,18 @@ bool JSONLoader::LoadModule(std::string const &  moduleDir,
             // This is a module, load it
 
             auto moduleFileRoot = boost::property_tree::ptree();
-            boost::property_tree::read_json(dir.path().generic_string(),
-                                            moduleFileRoot);
 
+            try
+            {
+                boost::property_tree::read_json(dir.path().generic_string(),
+                                                moduleFileRoot);
+            }
+            catch (std::exception &e)
+            {
+                // This module.json file is malformed
+                throw e;
+                return false;
+            }
             // Loaded the file, now find the mandatory labels
 
             auto moduleName =
@@ -113,8 +121,8 @@ bool JSONLoader::LoadModule(std::string const &  moduleDir,
             auto moduleLoadAfter =
                 JSONGetVec<std::string>(moduleFileRoot, "loadAfter");
 
-            auto moduleLoadBefore =
-                JSONGetVec<std::string>(moduleFileRoot, "loadBefore");
+            // auto moduleLoadBefore =
+            //     JSONGetVec<std::string>(moduleFileRoot, "loadBefore");
 
             // Which version of the game this module is supposed to be
             // compatible with
@@ -136,13 +144,14 @@ bool JSONLoader::LoadModule(std::string const &  moduleDir,
             RecursiveLoadDir(moduleDir, jsonObjects);
 
             // Add the new module to the list of modules
-            modules.push_back(
-                Module(jsonObjects, moduleName.value_or("NULL"),
-                       moduleDependencies, moduleLoadAfter, moduleLoadBefore,
-                       moduleVersion.value_or("0.0.0"),
-                       moduleTargetVersion.value_or("0.0.0"),
-                       moduleAuthor.value_or(""), moduleSite.value_or(""),
-                       moduleRepository.value_or("")));
+            modules.push_back(Module(jsonObjects, moduleName.value_or("NULL"),
+                                     moduleDependencies, moduleLoadAfter,
+                                     //    moduleLoadBefore,
+                                     moduleVersion.value_or("0.0.0"),
+                                     moduleTargetVersion.value_or("0.0.0"),
+                                     moduleAuthor.value_or(""),
+                                     moduleSite.value_or(""),
+                                     moduleRepository.value_or("")));
 
             break;
         }
@@ -208,8 +217,8 @@ bool JSONLoader::RecursiveLoadDir(std::string const &    loadDir,
                 }
 
                 // Now create the json object and push it onto the vector
-                jsonObjects.push_back(
-                    JSONData(jsonType.value(), assetName.value(), fileRoot));
+                jsonObjects.push_back(JSONData(
+                    jsonType.value(), assetName.value(), fileRoot, dir.path()));
             }
         }
     }

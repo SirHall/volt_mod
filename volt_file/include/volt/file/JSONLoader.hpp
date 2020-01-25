@@ -4,6 +4,7 @@
 
 #include "volt/file/JSONData.hpp"
 #include "volt/file/Module.hpp"
+#include "volt/file/ModuleJar.hpp"
 
 #include <string>
 #include <vector>
@@ -28,8 +29,7 @@ namespace volt::file
         JSONLoader &operator=(JSONLoader &&other);
         ~JSONLoader();
 
-        std::vector<Module>
-            LoadModuleCollection(std::string const &collectionDir);
+        ModuleJar LoadModuleCollection(std::string const &collectionDir);
 
         bool LoadModule(std::string const &  moduleDir,
                         std::vector<Module> &modules);
