@@ -2,6 +2,7 @@
 #ifndef VOLT_FILE_JSONDATA_HPP
 #define VOLT_FILE_JSONDATA_HPP
 
+#include <filesystem>
 #include <string>
 
 #include <boost/property_tree/json_parser.hpp>
@@ -12,16 +13,22 @@ namespace volt::file
     class JSONData
     {
     private:
-        const std::string                 type;
-        const std::string                 name;
-        const boost::property_tree::ptree root;
+        std::string                 type;
+        std::string                 name;
+        boost::property_tree::ptree root;
+        std::filesystem::path       filePath;
+        bool                        loaded = false;
 
     protected:
     public:
         JSONData(std::string const typeName, std::string const assetName,
-                 boost::property_tree::ptree const rootData);
+                 boost::property_tree::ptree const rootData,
+                 const std::filesystem::path       fileLocation);
         JSONData(const JSONData &other);
+        JSONData &operator=(const JSONData &other);
         JSONData(JSONData &&other);
+        JSONData &operator=(JSONData &&other);
+
         ~JSONData();
 
         inline std::string const &GetName() const { return this->name; }
@@ -31,6 +38,11 @@ namespace volt::file
         inline boost::property_tree::ptree const &GetRoot() const
         {
             return this->root;
+        }
+
+        inline std::filesystem::path const &GetFileLocation()
+        {
+            return this->filePath;
         }
     };
 
