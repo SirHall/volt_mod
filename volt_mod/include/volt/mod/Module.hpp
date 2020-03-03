@@ -1,14 +1,14 @@
 #pragma once
-#ifndef VOLT_FILE_MODULE_HPP
-#define VOLT_FILE_MODULE_HPP
+#ifndef VOLT_MOD_MODULE_HPP
+#define VOLT_MOD_MODULE_HPP
 
-#include "volt/file/JSONData.hpp"
+#include "volt/mod/JSONData.hpp"
 
 #include <string>
 #include <utility>
 #include <vector>
 
-namespace volt::file
+namespace volt::mod
 {
 
     enum ModuleOrganizationStatus
@@ -89,5 +89,5 @@ namespace volt::file
         // }
     };
 
-} // namespace volt::file
+} // namespace volt::mod
 #endif

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7)
 
-project(volt_ge_file)
+project(volt_ge_mod)
 
 # Setup Conan
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
@@ -8,7 +8,7 @@ conan_basic_setup()
 message(STATUS "Libs: ${CONAN_LIBS}")
 
 # Add in volt_gfx
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/volt_file/)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/volt_mod/)
 
 # Setup Dyygen
 # find_package(Doxygen)

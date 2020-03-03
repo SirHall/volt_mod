@@ -1,6 +1,6 @@
 #pragma once
-#ifndef VOLT_FILE_JSONDATA_HPP
-#define VOLT_FILE_JSONDATA_HPP
+#ifndef VOLT_MOD_JSONDATA_HPP
+#define VOLT_MOD_JSONDATA_HPP
 
 #include <filesystem>
 #include <string>
@@ -8,7 +8,7 @@
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ptree.hpp>
 
-namespace volt::file
+namespace volt::mod
 {
     class JSONData
     {
@@ -46,5 +46,5 @@ namespace volt::file
         }
     };
 
-} // namespace volt::file
+} // namespace volt::mod
 #endif

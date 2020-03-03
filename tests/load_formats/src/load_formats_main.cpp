@@ -1,10 +1,10 @@
 #include <iostream>
 
-#include <volt/file.hpp>
+#include <volt/mod.hpp>
 
 int main(int argc, char *argv[])
 {
-    auto loader = volt::file::JSONLoader();
+    auto loader = volt::mod::JSONLoader();
 
     auto moduleJar = loader.LoadModuleCollection("./res");
 

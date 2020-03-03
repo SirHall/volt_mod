@@ -1,8 +1,8 @@
-#include "volt/file/ModuleJar.hpp"
+#include "volt/mod/ModuleJar.hpp"
 
 #include <exception>
 
-using namespace volt::file;
+using namespace volt::mod;
 
 inline void MoveModuleToQueue(std::vector<Module> &         modulesToLoad,
                               std::vector<Module>::iterator it,

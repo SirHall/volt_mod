@@ -2,9 +2,11 @@
     "moduleName": "J",
     "author": "John Doe",
     "site": "www.example.com",
-    "repository": "www.github.com/SirHall/volt_file",
+    "repository": "www.github.com/SirHall/volt_mod",
     "version": "0.0.1",
     "targetVersion": "0.0.1",
     "dependencies": [],
-    "loadAfter": ["Test Module 1"]
+    "loadAfter": [
+        "Test Module 1"
+    ]
 }

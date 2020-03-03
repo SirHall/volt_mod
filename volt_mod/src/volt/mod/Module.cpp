@@ -1,9 +1,9 @@
-#include "volt/file/Module.hpp"
+#include "volt/mod/Module.hpp"
 
 #include <algorithm>
 #include <functional>
 
-using namespace volt::file;
+using namespace volt::mod;
 
 Module::Module(std::vector<JSONData> jsonObjects, std::string name,
                std::vector<std::string> deps,

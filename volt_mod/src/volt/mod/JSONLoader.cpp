@@ -1,4 +1,4 @@
-#include "volt/file/JSONLoader.hpp"
+#include "volt/mod/JSONLoader.hpp"
 
 #include <algorithm>
 #include <exception>
@@ -7,7 +7,7 @@
 #include <iostream>
 #include <optional>
 
-using namespace volt::file;
+using namespace volt::mod;
 
 JSONLoader::JSONLoader() {}
 

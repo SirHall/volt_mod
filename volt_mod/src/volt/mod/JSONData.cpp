@@ -1,6 +1,6 @@
-#include "volt/file/JSONData.hpp"
+#include "volt/mod/JSONData.hpp"
 
-using namespace volt::file;
+using namespace volt::mod;
 
 JSONData::JSONData(std::string const typeName, std::string const assetName,
                    boost::property_tree::ptree const rootData,

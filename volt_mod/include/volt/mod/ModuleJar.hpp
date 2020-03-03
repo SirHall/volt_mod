@@ -1,15 +1,15 @@
 #pragma once
-#ifndef VOLT_FILE_MODULEJAR_HPP
-#define VOLT_FILE_MODULEJAR_HPP
+#ifndef VOLT_MOD_MODULEJAR_HPP
+#define VOLT_MOD_MODULEJAR_HPP
 
-#include "volt/file/Module.hpp"
+#include "volt/mod/Module.hpp"
 
 #include <algorithm>
 #include <functional>
 #include <string>
 #include <vector>
 
-namespace volt::file
+namespace volt::mod
 {
 
     class ModuleJar
@@ -33,5 +33,5 @@ namespace volt::file
         }
     };
 
-} // namespace volt::file
+} // namespace volt::mod
 #endif

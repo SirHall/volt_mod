@@ -1,9 +1,9 @@
 #pragma once
-#ifndef VOLT_FILE_HPP
-#define VOLT_FILE_HPP
+#ifndef VOLT_MOD_HPP
+#define VOLT_MOD_HPP
 
-#include "volt/file/JSONData.hpp"
-#include "volt/file/JSONLoader.hpp"
-#include "volt/file/Module.hpp"
+#include "volt/mod/JSONData.hpp"
+#include "volt/mod/JSONLoader.hpp"
+#include "volt/mod/Module.hpp"
 
 #endif

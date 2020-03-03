@@ -1,10 +1,10 @@
 #pragma once
-#ifndef VOLT_FILE_JSONLOADER_HPP
-#define VOLT_FILE_JSONLOADER_HPP
+#ifndef VOLT_MOD_JSONLOADER_HPP
+#define VOLT_MOD_JSONLOADER_HPP
 
-#include "volt/file/JSONData.hpp"
-#include "volt/file/Module.hpp"
-#include "volt/file/ModuleJar.hpp"
+#include "volt/mod/JSONData.hpp"
+#include "volt/mod/Module.hpp"
+#include "volt/mod/ModuleJar.hpp"
 
 #include <string>
 #include <vector>
@@ -12,7 +12,7 @@
 #include <boost/asio.hpp>
 #include <boost/thread.hpp>
 
-namespace volt::file
+namespace volt::mod
 {
 
     class JSONLoader
@@ -38,5 +38,5 @@ namespace volt::file
                               std::vector<JSONData> &jsonObjects);
     };
 
-} // namespace volt::file
+} // namespace volt::mod
 #endif
