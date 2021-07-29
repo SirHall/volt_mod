@@ -11,15 +11,15 @@ using namespace volt::mod;
 
 JSONLoader::JSONLoader() {}
 
-JSONLoader::JSONLoader(const JSONLoader &other) {}
+// JSONLoader::JSONLoader(const JSONLoader &other) {}
 
-JSONLoader &JSONLoader::operator=(const JSONLoader &other) { return *this; }
+// JSONLoader &JSONLoader::operator=(const JSONLoader &other) { return *this; }
 
-JSONLoader::JSONLoader(JSONLoader &&other) {}
+// JSONLoader::JSONLoader(JSONLoader &&other) {}
 
-JSONLoader &JSONLoader::operator=(JSONLoader &&other) { return *this; }
+// JSONLoader &JSONLoader::operator=(JSONLoader &&other) { return *this; }
 
-JSONLoader::~JSONLoader() {}
+// JSONLoader::~JSONLoader() {}
 
 ModuleJar JSONLoader::LoadModuleCollection(std::string const &collectionDir)
 {

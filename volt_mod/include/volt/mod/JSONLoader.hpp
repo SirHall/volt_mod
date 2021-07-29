@@ -18,16 +18,16 @@ namespace volt::mod
     class JSONLoader
     {
     private:
-        boost::asio::thread_pool thr_pool;
+        // boost::asio::thread_pool thr_pool;
 
     protected:
     public:
         JSONLoader();
-        JSONLoader(const JSONLoader &other);
-        JSONLoader &operator=(const JSONLoader &other);
-        JSONLoader(JSONLoader &&other);
-        JSONLoader &operator=(JSONLoader &&other);
-        ~JSONLoader();
+        // JSONLoader(const JSONLoader &other);
+        // JSONLoader &operator=(const JSONLoader &other);
+        // JSONLoader(JSONLoader &&other);
+        // JSONLoader &operator=(JSONLoader &&other);
+        // ~JSONLoader();
 
         ModuleJar LoadModuleCollection(std::string const &collectionDir);
 
