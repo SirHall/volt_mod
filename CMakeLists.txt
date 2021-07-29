@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.7)
 
-project(volt_ge_mod)
+include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/volt_hunt.cmake)
 
-# Setup Conan
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
-message(STATUS "Libs: ${CONAN_LIBS}")
+project(volt_ge_mod VERSION 0.0.1)
+
+include(ExternalProject)
+set(EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/dep)
+include_directories(${EXTERNAL_INSTALL_LOCATION}/include)
 
 # Add in volt_gfx
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/volt_mod/)
