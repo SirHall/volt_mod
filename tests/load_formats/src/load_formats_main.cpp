@@ -29,9 +29,7 @@ int main(int argc, char *argv[])
             std::cout << "\t\t{\n";
             for (auto &jsonField : jsonFile.GetRoot())
                 std::cout << "\t\t\t" << jsonField.first << ": "
-                          << jsonField.second.get_value_optional<std::string>()
-                                 .value_or("")
-                          << "\n";
+                          << jsonField.second.get_value_optional<std::string>().value_or("") << "\n";
             std::cout << "\t\t}\n";
         }
         std::cout << "}" << std::endl;

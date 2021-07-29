@@ -31,11 +31,9 @@ namespace volt::mod
 
         ModuleJar LoadModuleCollection(std::string const &collectionDir);
 
-        bool LoadModule(std::string const &  moduleDir,
-                        std::vector<Module> &modules);
+        bool LoadModule(std::string const &moduleDir, std::vector<Module> &modules);
 
-        bool RecursiveLoadDir(std::string const &    loadDir,
-                              std::vector<JSONData> &jsonObjects);
+        bool RecursiveLoadDir(std::string const &loadDir, std::vector<JSONData> &jsonObjects);
     };
 
 } // namespace volt::mod

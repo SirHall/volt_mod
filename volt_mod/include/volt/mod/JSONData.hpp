@@ -21,9 +21,8 @@ namespace volt::mod
 
     protected:
     public:
-        JSONData(std::string const typeName, std::string const assetName,
-                 boost::property_tree::ptree const rootData,
-                 const std::filesystem::path       fileLocation);
+        JSONData(std::string const typeName, std::string const assetName, boost::property_tree::ptree const rootData,
+                 const std::filesystem::path fileLocation);
         JSONData(const JSONData &other);
         JSONData &operator=(const JSONData &other);
         JSONData(JSONData &&other);
@@ -35,15 +34,9 @@ namespace volt::mod
 
         inline std::string const &GetType() const { return this->type; }
 
-        inline boost::property_tree::ptree const &GetRoot() const
-        {
-            return this->root;
-        }
+        inline boost::property_tree::ptree const &GetRoot() const { return this->root; }
 
-        inline std::filesystem::path const &GetFileLocation()
-        {
-            return this->filePath;
-        }
+        inline std::filesystem::path const &GetFileLocation() { return this->filePath; }
     };
 
 } // namespace volt::mod

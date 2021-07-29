@@ -27,10 +27,7 @@ namespace volt::mod
         ModuleJar &operator=(ModuleJar &&other);
         ~ModuleJar();
 
-        inline std::vector<Module> const &GetModulesQueue()
-        {
-            return this->modules;
-        }
+        inline std::vector<Module> const &GetModulesQueue() { return this->modules; }
     };
 
 } // namespace volt::mod
