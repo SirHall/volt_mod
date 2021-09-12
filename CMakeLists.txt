@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.7)
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/volt_hunt.cmake)
 
-project(volt_ge_mod VERSION 0.0.1)
+project(volt_ge_mod VERSION 0.0.2)
 
 include(ExternalProject)
 set(EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/dep)
